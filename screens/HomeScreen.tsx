@@ -10,7 +10,7 @@ import {
 import { AddNewTodoItem } from "../services/todoServices";
 import { Colors } from "../constants/Colors";
 import { MaterialIcons } from "@expo/vector-icons";
-import { sortTodoListByCompletion } from "../utils/SortTodos";
+import { sortTodoListByCompletion } from "../utils/sortTodoListByCompletion";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import EmptyTodoList from "../components/EmptyTodoList";
 import React, { useLayoutEffect, useMemo, useState } from "react";
@@ -67,7 +67,6 @@ export default function HomeScreen() {
         <TextInput
           style={styles.input}
           placeholder="Add New Task"
-          onEndEditing={addNewTodo}
           returnKeyType="done"
           onChangeText={setTodo}
           defaultValue={todo}
@@ -128,9 +127,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     width: "80%",
     backgroundColor: "white",
-    elevation: 10,
-    shadowOffset: { width: 5, height: 5 },
-    shadowRadius: 10,
     paddingHorizontal: 15,
     fontSize: 18,
     color: "rgba(0,0,0,0.6)",
